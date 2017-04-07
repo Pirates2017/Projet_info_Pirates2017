@@ -1,0 +1,34 @@
+package View;
+import Model.GameObject;
+
+import java.awt.Color;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+public class Window {
+	private Map map = new Map();
+	
+	public Window(){	    
+	    JFrame window = new JFrame("Game");
+	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//quitte le jeu quand on appuie sur la croix rouge, au lieu de juste le masquer
+	    window.setBounds(0, 0, 2000, 2000); //fixe la taille de la fenêtre
+	    window.getContentPane().setBackground(Color.gray);//permet de mettre plusieurs couches dont la prmeière est gris clair
+	    window.getContentPane().add(this.map);//on place la map sur le fond gris (plusieurs couches)
+	    window.setVisible(true);//rend la fenêtre visible	    
+	}	
+	
+	public void setGameObjects(ArrayList<GameObject> objects){
+		this.map.setObjects(objects);//modifie les objets sur la carte
+		this.map.redraw();//redessine la carte en fonction des objets placés dessus
+	}
+	
+	public void update(){//met la carte à jour
+		this.map.redraw();
+	}
+	
+	public void setKeyListener(KeyListener keyboard){
+	    this.map.addKeyListener(keyboard);//fenêtre interagit avec les éléments du clavier
+	}
+}
