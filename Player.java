@@ -13,7 +13,7 @@ public class Player extends GameObject implements DemisableObserver, ExplodableO
 	public Player(int x, int y, int maxBomb, int lifes){
 		super(x,y,2);
 		this.maxBomb = maxBomb;
-		this.countBomb = maxBomb;
+		this.countBomb = countBomb;
 		this.lifes = lifes;
 	}
 	
