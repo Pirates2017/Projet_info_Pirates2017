@@ -16,7 +16,8 @@ public class Window {
 	    window.setBounds(0, 0, 1000, 1020);
 	    window.getContentPane().setBackground(Color.gray);
 	    window.getContentPane().add(this.map);
-	    window.setVisible(true);		    
+	    window.setResizable(false);//on empêche l'utilisateur de pouvoir aggranduir/réduire la fenêtre
+	    window.setVisible(true);
 	}	
 	
 	public void setGameObjects(ArrayList<GameObject> objects){
