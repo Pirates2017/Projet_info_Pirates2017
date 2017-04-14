@@ -4,6 +4,7 @@ public abstract class GameObject {
 	protected int posX;
 	protected int posY;
 	protected int color;
+	protected int health; //durée de vie de chaque entité
 	
 	public GameObject(int X, int Y, int color){
 		this.posX = X;
