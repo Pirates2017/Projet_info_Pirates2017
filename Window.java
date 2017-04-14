@@ -18,6 +18,7 @@ public class Window {
 	    window.getContentPane().add(this.map);
 	    window.setResizable(false);//on empêche l'utilisateur de pouvoir aggranduir/réduire la fenêtre
 	    window.setVisible(true);
+	    window.setLocationRelativeTo(null); //fait en sorte que la fenêtre ouvre au centre de l'écran
 	}	
 	
 	public void setGameObjects(ArrayList<GameObject> objects){
