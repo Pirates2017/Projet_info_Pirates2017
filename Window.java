@@ -12,7 +12,7 @@ public class Window {
 	
 	public Window(){	    
 	    JFrame window = new JFrame("Game");
-	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    window.setBounds(0, 0, 1000, 1020);
 	    window.getContentPane().setBackground(Color.gray);
 	    window.getContentPane().add(this.map);
