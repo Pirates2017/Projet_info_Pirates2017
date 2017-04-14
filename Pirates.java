@@ -24,7 +24,8 @@ public class Pirates extends JFrame implements ActionListener {
 		createButtons();
 		setTitle("Projet info: Pirates");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(new Dimension(700, 700));
+		setSize(600,600);
+		setLocationRelativeTo(null); //fait en sorte que la fenêtre ouvre au centre de l'écran
     }
 	
 	public void createMenubar(){
