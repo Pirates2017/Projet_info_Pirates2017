@@ -9,6 +9,7 @@ public abstract class GameObject {
 		this.posX = X;
 		this.posY = Y;
 		this.color = color;
+		this.health = health;
 	}
 	
 	public int getPosX(){
