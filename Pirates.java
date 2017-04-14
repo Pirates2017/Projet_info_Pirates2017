@@ -61,6 +61,7 @@ public class Pirates extends JFrame implements ActionListener {
 	}
 	public JPanel createButtons(){
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.CYAN);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		JButton play = new JButton ("Play!", new ImageIcon("new.gif"));
 		
