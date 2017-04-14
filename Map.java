@@ -20,7 +20,7 @@ public class Map extends JPanel {
 			for(int j = 0; j<20; j++){
 				int x = i;
 				int y = j;
-				g.setColor(Color.LIGHT_GRAY);
+				g.setColor(Color.CYAN); //change les couleurs de cases
 				g.fillRect(x*50, y*50, 48, 48); 
 				g.setColor(Color.BLACK);
 				g.drawRect(x*50, y*50, 48, 48); 
