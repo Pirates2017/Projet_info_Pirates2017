@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class Monster extends GameObject implements Demisable{
 	private int power;
-	private boolean disappeared = false;
+	private boolean disappeared = true;
 	private int duration = 0;
 	protected ArrayList<DemisableObserver> demisableObservers = new ArrayList<DemisableObserver>();
 
@@ -28,7 +28,7 @@ public class Monster extends GameObject implements Demisable{
 
 	public void disappeared(){
 		if(power == 0){
-			this.disappeared = true;
+			this.disappeared = false;
 			run();	
 		}
 	}
