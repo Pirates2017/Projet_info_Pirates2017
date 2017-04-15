@@ -7,7 +7,7 @@ public class BlockBreakable extends Block implements Demisable, ExplodableObserv
 	private ArrayList<DemisableObserver> observers = new ArrayList<DemisableObserver>();
 	
 	public BlockBreakable(int X, int Y) {
-		super(X, Y, 1);
+		super(X, Y, 1, 50, 50);
 	}
 
 	@Override
