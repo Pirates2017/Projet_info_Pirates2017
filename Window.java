@@ -14,8 +14,11 @@ public class Window {
 	    JFrame window = new JFrame("Game");
 	    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    window.setBounds(0, 0, 1000, 1020);
+	    window.setSize(width, height);
 	    window.getContentPane().setBackground(Color.gray);
 	    window.getContentPane().add(this.map);
+	    window.setResizable(false);//on empêche l'utilisateur de pouvoir aggranduir/réduire la fenêtre
+	    window.setLocationRelativeTo(null); //fait en sorte que la fenêtre ouvre au centre de l'écran
 	    window.setVisible(true);		    
 	}	
 	
