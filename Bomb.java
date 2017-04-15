@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Bomb extends BombObject implements Demisable{
 	
 	public Bomb(int x, int y, int duration, int range) {
-		super(x, y, duration, range, 4);
+		super(x, y, duration, range, 4);//chiffre = couleur
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////
 	
 	@Override
-	public void run() {
+	public void run() {//lance le décompte avant l'explosion
 		int count = 0;
 		while(!this.detonated  && count < this.duration/10.0){
 			try {
@@ -34,7 +34,7 @@ public class Bomb extends BombObject implements Demisable{
 		boolean distanceY = Math.abs(this.getPosY() - bomb.getPosY()) <= bomb.getRange() && this.getPosX() == bomb.getPosX();
 		if(distanceX || distanceY){
 			this.detonated = true;
-			this.demisableNotifyObserver();		
+			this.demisableNotifyObserver();//on fait en sorte que ça se voit sur l'écran		
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class Bomb extends BombObject implements Demisable{
 			for(DemisableObserver observer : demisableObservers){
 				explosion.demisableAttach(observer);
 			}
-			loot.add(explosion);
+			loot.add(explosion);//ajoute l'explosion a la liste d'objets se trount sur le plateau de jeu
 		}
 		for(int i = y-range; i <= y+range; i++){
 			Explosion explosion = new Explosion(x,i,500);
