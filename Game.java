@@ -8,9 +8,12 @@ public class Game implements DemisableObserver{
 	private ArrayList<GameObject> objects = new ArrayList<GameObject>();
 	
 	private Window window;
-	private int size = 20;
+	private int width = 20;
+	private int height = 20;
 	private int bombTimer = 3000;
 	private int numberOfBreakableBlocks = 40;
+	private int numberOfCreatures = 30;
+	private int numberOfMonsters = 30;
 	
 	public Game(Window window){
 		this.window = window;
@@ -19,12 +22,16 @@ public class Game implements DemisableObserver{
 		objects.add(new Player(10,10,3,5));
 		
 		// Map building 
+		
+		//unbreakable blocks
 		for(int i = 0; i < size; i++){
 			objects.add(new BlockUnbreakable(i,0));
 			objects.add(new BlockUnbreakable(0,i));
 			objects.add(new BlockUnbreakable(i, size-1));
 			objects.add(new BlockUnbreakable(size-1, i));
 		}
+		
+		//breakable blocks
 		Random rand = new Random();
 		for(int i = 0; i < numberOfBreakableBlocks; i++){
 			int x = rand.nextInt(16) + 2;
@@ -36,6 +43,42 @@ public class Game implements DemisableObserver{
 		
 		window.setGameObjects(this.getGameObjects());
 		notifyView();
+		
+		//creatures
+		//creatures
+		Random randc = new Random();
+		for(int i = 0; i < numberOfCreatures; i++){
+			int x = randc.nextInt(18) +1;//+2 pour qu'il n'y ait aucun bloc sur les deux premiers cadres du jeu
+			int y = randc.nextInt(18) +1;
+			int color = randc.nextInt(9);
+			Creature creature = new Creature(x,y, color, 50, 50);
+			creature.demisableAttach(this);//fait en sorte que le block disparaisse
+			objects.add(creature);
+	}
+		
+		
+	public ArrayList<GameObject> getObjects() {
+		return objects;
+	}
+
+	public void setObjects(ArrayList<GameObject> objects) {
+		this.objects = objects;
+	}
+
+	public int getNumberOfBreakableBlocks() {
+		return numberOfBreakableBlocks;
+	}
+
+	public void setNumberOfBreakableBlocks(int numberOfBreakableBlocks) {
+		this.numberOfBreakableBlocks = numberOfBreakableBlocks;
+	}
+
+	public int getNumberOfCreatures() {
+		return numberOfCreatures;
+	}
+
+	public void setNumberOfCreatures(int numberOfCreatures) {
+		this.numberOfCreatures = numberOfCreatures;
 	}
 	
 	public void dropBomb(String bombType, int playerNumber){
@@ -81,9 +124,20 @@ public class Game implements DemisableObserver{
 	private void notifyView(){
 		window.update();
 	}
+	public int getWidth() {
+		return width;
+	}
 
-	public ArrayList<GameObject> getGameObjects(){
-		return this.objects;
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+		
+	public void setHeight(int height) {
+		this.height = height;
 	}
 	
 	@Override
